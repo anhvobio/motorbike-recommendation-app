@@ -21,7 +21,7 @@ st.set_page_config(page_title="🔎 Gợi ý & Phân tích xe máy", layout="wid
 # ==============================
 @st.cache_data
 def load_data():
-    path = r"D:\Data Science\Đồ án\GUI_Project2\GUI_XeMayCu\du_lieu_xe_may_da_tien_xu_ly_1.xlsx"
+    path = "./data/du_lieu_xe_may_da_tien_xu_ly_1.xlsx"
     df = pd.read_excel(path, sheet_name=0)
 
     # Chuẩn hóa cột
@@ -91,7 +91,7 @@ def load_data():
 @st.cache_resource
 def load_similarity():
     try:
-        with open(r"D:\Data Science\Đồ án\GUI_Project2\GUI_XeMayCu\xe_cosine_sim_18112025.pkl", "rb") as f:
+        with open("./models/xe_cosine_sim_18112025.pkl", "rb") as f:
             return pickle.load(f)
     except:
         return None
@@ -261,7 +261,6 @@ st.pyplot(fig4)
 # Footer
 # ==============================
 st.markdown("---")
-
 
 # ==============================
 # Sidebar dẫn tới anchors
